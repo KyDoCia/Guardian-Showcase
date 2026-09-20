@@ -1,16 +1,22 @@
 --!strict
 
+local SafeDiagnosticSink = require(script.Parent.Parent.src.Infrastructure.SafeDiagnosticSink)
+
 return function()
-	describe("failure isolation", function()
-		it("does not turn an observability failure into suspicion", function()
+	describe("diagnostic failure isolation", function()
+		it("contains provider failure at the diagnostic boundary", function()
+			local domainAccepted = true
 			local suspicionCreated = false
 
-			local function emitDiagnostic()
+			local emitted = SafeDiagnosticSink.emit(function()
 				error("provider unavailable")
-			end
+			end, {
+				category = "demo",
+				code = "provider_failure",
+			})
 
-			local ok = pcall(emitDiagnostic)
-			expect(ok).to.equal(false)
+			expect(emitted).to.equal(false)
+			expect(domainAccepted).to.equal(true)
 			expect(suspicionCreated).to.equal(false)
 		end)
 	end)
