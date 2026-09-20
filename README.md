@@ -8,14 +8,14 @@ The point of this repository is not to distribute an anti-cheat. It is to make a
 
 ## Scope
 
-The public sample focuses on four properties:
+The public sample focuses on a small set of properties:
 
 | Property | Public evidence |
 | --- | --- |
 | Client authority is not trusted | [Trust model](docs/trust-model.md) |
 | Requests cross an explicit validation boundary | [Validation contract](src/Contracts/ValidationResult.luau) and [example validator](src/Demo/ExampleValidator.luau) |
 | Diagnostic evidence is bounded and sanitized | [Evidence contract](src/Contracts/Evidence.luau), [sanitizer](src/Infrastructure/Sanitizer.luau), [bounded buffer](src/Infrastructure/BoundedBuffer.luau) |
-| Infrastructure failure is not a security verdict | [Failure semantics](docs/failure-semantics.md) |
+| Infrastructure failure is contained at the diagnostic boundary | [Failure semantics](docs/failure-semantics.md) and [safe diagnostic sink](src/Infrastructure/SafeDiagnosticSink.luau) |
 
 ## Request boundary
 
