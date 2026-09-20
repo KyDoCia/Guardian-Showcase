@@ -1,4 +1,4 @@
-# Guardian Security Framework — Engineering Showcase
+# Guardian Security Framework - Engineering Showcase
 
 Guardian is a private, server-authoritative security framework for Roblox experiences.
 
