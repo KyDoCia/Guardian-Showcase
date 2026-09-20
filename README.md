@@ -13,7 +13,7 @@ The public sample focuses on a small set of properties:
 | Property | Public evidence |
 | --- | --- |
 | Client authority is not trusted | [Trust model](docs/trust-model.md) |
-| Requests cross an explicit validation boundary | [Validation contract](src/Contracts/ValidationResult.luau) and [example validator](src/Demo/ExampleValidator.luau) |
+| Requests cross an explicit validation boundary | [Validation contract](src/Contracts/ValidationResult.luau), [example validator](src/Demo/ExampleValidator.luau), and [remote security boundary](src/Demo/RemoteSecurityBoundary.luau) |
 | Diagnostic evidence is bounded and sanitized | [Evidence contract](src/Contracts/Evidence.luau), [sanitizer](src/Infrastructure/Sanitizer.luau), [bounded buffer](src/Infrastructure/BoundedBuffer.luau) |
 | Infrastructure failure is contained at the diagnostic boundary | [Failure semantics](docs/failure-semantics.md) and [safe diagnostic sink](src/Infrastructure/SafeDiagnosticSink.luau) |
 
@@ -48,6 +48,7 @@ docs/
   architecture.md
   trust-model.md
   failure-semantics.md
+  remote-security-boundary.md
 
 src/
   Contracts/
@@ -59,6 +60,7 @@ tests/
   BoundedBuffer.spec.luau
   FailureIsolation.spec.luau
   Sanitizer.spec.luau
+  RemoteSecurityBoundary.spec.luau
 ```
 
 The demo code is intentionally generic. It exists to expose the shape of the boundaries described in the documentation, not Guardian's production detection behavior.

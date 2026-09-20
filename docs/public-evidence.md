@@ -4,7 +4,7 @@ This page maps the engineering properties described by the showcase to code and 
 
 | Property | Implementation | Test coverage |
 | --- | --- | --- |
-| Client input crosses a server-owned validation boundary | `src/Demo/ExampleValidator.luau` | malformed input, missing fields, invalid field types, client-shaped authority, unauthorized context |
+| Client input crosses a server-owned validation boundary | `src/Demo/ExampleValidator.luau`, `src/Demo/RemoteSecurityBoundary.luau` | malformed input, invalid field types, non-finite numbers, request-shaped authority, unexpected fields, unauthorized context |
 | Diagnostic state remains bounded | `src/Infrastructure/BoundedBuffer.luau` | capacity overflow, repeated wraparound, insertion order |
 | Diagnostic context is sanitized before storage | `src/Infrastructure/Sanitizer.luau` | unsupported values, long keys, long values, nil input |
 | Diagnostic provider failure stays inside the diagnostic boundary | `src/Infrastructure/SafeDiagnosticSink.luau` | provider exception with domain state left unchanged |
